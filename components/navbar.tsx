@@ -1,17 +1,15 @@
 "use client"
-
 import * as React from "react"
 import Link from "next/link"
 import { MenuIcon } from "lucide-react"
-
-import { Logo } from "@/components/logo"
+import { Logo } from "@/components/manyExport"
 import { Button, buttonVariants } from "@/components/ui/button"
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
+  // SheetDescription,
   SheetHeader,
-  SheetTitle,
+  // SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { cn } from "@/lib/utils"
@@ -20,7 +18,8 @@ const navigation = [
   { label: "Browse Jobs", href: "/jobs" },
   { label: "Company", href: "/company" },
   { label: "Pricing", href: "/pricing" },
-]
+]  
+
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = React.useState(false)
@@ -29,10 +28,11 @@ function Navbar() {
     <header className="sticky top-0 z-50 px-4 pt-4">
       <nav
         aria-label="Main navigation"
-        className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 rounded-xl border border-border/70 bg-card/80 px-4 shadow-lg shadow-black/5 backdrop-blur-xl supports-[backdrop-filter]:bg-card/70 sm:px-6"
+        className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 rounded-xl border border-border/70 bg-card/80 px-4 shadow-lg shadow-black/5 backdrop-blur-xl supports-backdrop-filter:bg-card/70 sm:px-6"
       >
+        {/* Image logo */}
         <Logo />
-
+        {/* Nav Link */}
         <div className="hidden items-center gap-8 md:flex">
           <ul className="flex items-center gap-8">
             {navigation.map((item) => (
@@ -83,10 +83,10 @@ function Navbar() {
           <SheetContent side="right" className="gap-0 p-0">
             <SheetHeader className="border-b p-5">
               <Logo />
-              <SheetTitle className="sr-only">Navigation menu</SheetTitle>
+              {/* <SheetTitle className="sr-only">Navigation menu</SheetTitle>
               <SheetDescription className="sr-only">
                 Browse the HireLoop website
-              </SheetDescription>
+              </SheetDescription> */}
             </SheetHeader>
 
             <nav aria-label="Mobile navigation" className="flex-1 overflow-y-auto p-3">

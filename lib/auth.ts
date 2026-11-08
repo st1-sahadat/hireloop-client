@@ -6,16 +6,19 @@ const client = new MongoClient("mongodb://localhost:27017/database");
 const db = client.db("hireloop");
 
 export const auth = betterAuth({
+    baseURL: process.env.BETTER_AUTH_URL, 
     emailAndPassword: {
         enabled: true,
     },
     socialProviders: {
-        google: { // [!code highlight]
-            clientId: process.env.GOOGLE_CLIENT_ID as string, // [!code highlight]
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET as string, // [!code highlight]
-        }, // [!code highlight]
+        google: {
+            clientId: process.env.GOOGLE_CLIENT_ID as string,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+        },
     },
     database: mongodbAdapter(db, {
         client,
     }),
 });
+
+
