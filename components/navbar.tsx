@@ -25,10 +25,10 @@ function Navbar() {
   const [menuOpen, setMenuOpen] = React.useState(false)
 
   return (
-    <header className="sticky top-0 z-50 px-4 pt-4">
+    <header className="sticky top-0 z-50 bg-[#050505]">
       <nav
         aria-label="Main navigation"
-        className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 rounded-xl border border-border/70 bg-card/80 px-4 shadow-lg shadow-black/5 backdrop-blur-xl supports-backdrop-filter:bg-card/70 sm:px-6"
+        className=" flex h-16  items-center justify-between gap-6 rounded-xl border border-border/70 bg-card/80  shadow-lg shadow-black/5 backdrop-blur-xl supports-backdrop-filter:bg-card/70 sm:px-6"
       >
         {/* Image logo */}
         <Logo />
