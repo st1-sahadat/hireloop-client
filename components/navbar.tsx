@@ -11,30 +11,25 @@ import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { useSession, signOut } from "@/lib/auth-client"
 
-// Matches the "Hireloop 2.0" design: eyebrow links + auth actions inside a
-// floating dark pill on the right of the logo.
-const NAV_LINKS = [
-  { label: "Browse Jobs", href: "/jobs" },
-  { label: "Company", href: "/company" },
-  { label: "Pricing", href: "/pricing" },
-] as const
-
 export function Navbar() {
   const pathname = usePathname()
   const [open, setOpen] = React.useState(false);
   const { data: session } = useSession();
-
-  console.log('user session in navbar', session)
+  
+  const NAV_LINKS = [
+    { label: "Browse Jobs", href: "/jobs" },
+    { label: "Company", href: "/company" },
+    { label: "Pricing", href: "/pricing" },
+    { label: "DashBoard", href: `/dashboard/${session?.user.role || 'seeker'}`}
+  ] as const
 
   React.useEffect(() => {
     if (!open) return
-
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
         setOpen(false)
       }
     }
-
     window.addEventListener("keydown", onKeyDown)
     return () => window.removeEventListener("keydown", onKeyDown)
   }, [open])

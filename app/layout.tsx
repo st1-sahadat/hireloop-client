@@ -26,7 +26,7 @@ export default function RootLayout({
     >
       <body className="container mx-auto ">
         {/* <ThemeProvider> */}
-          <Navbar />
+          {/* <Navbar /> */}
           {children}
         {/* </ThemeProvider> */}
       </body>
