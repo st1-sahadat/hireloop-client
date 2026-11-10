@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Switch } from "@/components/ui/switch"
 import { Textarea } from "@/components/ui/textarea"
+import { createJob } from "@/lib/actions/jobs"
 
 type JobType = "full-time" | "part-time" | "contract" | "internship"
 // Flat form data, keys mirror the Figma layer names (isRemote, deadline, minSalary…).
@@ -69,11 +70,8 @@ export default function NewJobPage() {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         const jobData: JobFormData = { ...form }
-        console.log("new job form data:", jobData)
-        // TODO: wire into the backend (`POST /jobs` or similar).
-
-        // const result = await createJob(jobData);
-        // console.log("createJob result:", result);
+        const result = await createJob(jobData);
+        console.log("createJob result:", result);
 
     }
 
